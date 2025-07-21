@@ -6,6 +6,7 @@ import { WebhookModule } from './webhook/webhook.module';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from './config/config.module';
 import { CommonModule } from './common/common.module';
+import { ShopifyModule } from './shopify/shopify.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { CommonModule } from './common/common.module';
       WebhookModule,
       ConfigModule,
       CommonModule,
+      ShopifyModule,
   ],
   controllers: [AppController],
   providers: [AppService],
