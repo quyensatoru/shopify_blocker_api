@@ -67,9 +67,10 @@
     "typescript-eslint": "^8.20.0"
   },
   "lint-staged": {
-    "src/**/*.{ts,js,json}": [
-      "eslint --fix",
-      "prettier --write"
+    "*.{js,ts}": [
+      "npm run lint",
+      "npm run format",
+      "git add ."
     ]
   },
   "jest": {
