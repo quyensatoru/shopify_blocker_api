@@ -1,7 +1,7 @@
-import {Body, Controller, Post, Req} from '@nestjs/common';
-import {ShopService} from "./shop.service";
-import {CreateShopDto} from "./dto/create-shop.dto";
-import {CustomHttpException} from "../common/http-response/http-response.exception";
+import { Body, Controller, Post } from '@nestjs/common';
+import { ShopService } from './shop.service';
+import { CreateShopDto } from './dto/create-shop.dto';
+import { CustomHttpException } from '../common/http-response/http-response.exception';
 
 @Controller('shop')
 export class ShopController {
@@ -9,17 +9,23 @@ export class ShopController {
 
     @Post()
     async create(@Body() body: CreateShopDto) {
-        let shop = await this.shopService.upsert({
-            domain: body.shop
-        }, {
-            accessToken: body.accessToken,
-            status: true
-        }).select('-accessToken').exec();
+        const shop = await this.shopService
+            .upsert(
+                {
+                    domain: body.shop,
+                },
+                {
+                    accessToken: body.accessToken,
+                    status: true,
+                }
+            )
+            .select('-accessToken')
+            .exec();
 
-        if(!shop) {
-            throw new CustomHttpException("Could not created shop");
+        if (!shop) {
+            throw new CustomHttpException('Could not created shop');
         }
 
-        return shop
+        return shop;
     }
 }

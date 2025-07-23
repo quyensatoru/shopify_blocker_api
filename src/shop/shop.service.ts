@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import {Shop, ShopDocument} from "./schemas/shop.schema";
-import {FilterQuery, Model, QueryOptions} from "mongoose";
-import {InjectModel} from "@nestjs/mongoose";
+import { Shop, ShopDocument } from './schemas/shop.schema';
+import { FilterQuery, Model, QueryOptions } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class ShopService {
@@ -16,6 +16,10 @@ export class ShopService {
     }
 
     upsert(filter: FilterQuery<Shop>, update: Partial<Shop>, options?: QueryOptions) {
-        return this.shopModel.findOneAndUpdate(filter, update, { new: true, upsert: true, ...(options ? options : {}) });
+        return this.shopModel.findOneAndUpdate(filter, update, {
+            new: true,
+            upsert: true,
+            ...(options ? options : {}),
+        });
     }
 }

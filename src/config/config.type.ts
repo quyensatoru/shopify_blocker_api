@@ -1,5 +1,7 @@
-import { DatabaseConfig } from "../database/database.config";
+import { DatabaseConfig } from '../database/database.config';
+import { ShopifyConfig } from '../shopify/shopify.config';
 
 export type AllConfig = {
-    database: DatabaseConfig
-}
+    database: DatabaseConfig;
+    shopify: ShopifyConfig;
+};

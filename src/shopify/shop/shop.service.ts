@@ -1,12 +1,4 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class ShopService {
-    async getShop(domain: string, accessToken: string) {
-        try {
-            
-        } catch (e) {
-            
-        }
-    }
-}
+export class ShopService {}

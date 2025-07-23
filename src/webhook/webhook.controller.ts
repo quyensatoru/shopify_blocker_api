@@ -1,14 +1,10 @@
-import {Controller, Post} from '@nestjs/common';
+import { Controller, Post } from '@nestjs/common';
 
 @Controller('webhook')
 export class WebhookController {
     @Post('orders/paid')
-    async ordersPaid() {
-        return true
-    }
+    async ordersPaid() {}
 
     @Post('app/uninstalled')
-    async appUninstalled() {
-        return true
-    }
+    async appUninstalled() {}
 }

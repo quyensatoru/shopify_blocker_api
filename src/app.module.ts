@@ -9,15 +9,8 @@ import { CommonModule } from './common/common.module';
 import { ShopifyModule } from './shopify/shopify.module';
 
 @Module({
-  imports: [
-      ShopModule,
-      DatabaseModule,
-      WebhookModule,
-      ConfigModule,
-      CommonModule,
-      ShopifyModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [ShopModule, DatabaseModule, WebhookModule, ConfigModule, CommonModule, ShopifyModule],
+    controllers: [AppController],
+    providers: [AppService],
 })
 export class AppModule {}

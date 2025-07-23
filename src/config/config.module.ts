@@ -1,15 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule as NestConfigModule } from '@nestjs/config';
-import DatabaseConfig from "../database/database.config";
+import DatabaseConfig from '../database/database.config';
+import ShopifyConfig from '../shopify/shopify.config';
 
 @Module({
     imports: [
         NestConfigModule.forRoot({
             isGlobal: true,
-            load: [
-                DatabaseConfig,
-            ]
-        })
-    ]
+            load: [DatabaseConfig, ShopifyConfig],
+        }),
+    ],
 })
 export class ConfigModule {}

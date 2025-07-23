@@ -1,7 +1,7 @@
-import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose";
-import {HydratedDocument} from "mongoose";
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HydratedDocument } from 'mongoose';
 
-@Schema({_id: true, timestamps: true, versionKey: false})
+@Schema({ _id: true, timestamps: true, versionKey: false })
 export class Shop {
     @Prop({ required: true, type: String })
     accessToken: string;
@@ -16,5 +16,4 @@ export class Shop {
 export type ShopDocument = HydratedDocument<Shop>;
 export const ShopSchema = SchemaFactory.createForClass(Shop);
 
-ShopSchema.index({ domain: 1 })
-
+ShopSchema.index({ domain: 1 });
