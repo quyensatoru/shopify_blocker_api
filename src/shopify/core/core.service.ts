@@ -1,13 +1,12 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { GraphQL } from '@bss-sbc/shopify-api-fetcher';
-import { GraphqlResult } from './shopify.type';
-import { fetchWithRetryBasedOnCost } from './shopify.helper';
+import { GraphqlResult } from '../shopify.type';
+import { fetchWithRetryBasedOnCost } from '../shopify.helper';
 import { ConfigService } from '@nestjs/config';
-import { AllConfig } from '../config/config.type';
+import { AllConfig } from '../../config/config.type';
 
 @Injectable()
-export class ShopifyService {
-    private readonly logger = new Logger(ShopifyService.name);
+export class ShopifyCoreService {
     constructor(private readonly configService: ConfigService<AllConfig>) {
         GraphQL.setConfig({
             version: this.configService.get('shopify.apiVersion', { infer: true }),
@@ -23,8 +22,8 @@ export class ShopifyService {
             identifier?: Record<string, any>;
         }
     ) {
-        return (await fetchWithRetryBasedOnCost(() => {
-            return GraphQL.safeFetch(domain, access_token, params);
-        })) as Promise<GraphqlResult<T>>;
+        return fetchWithRetryBasedOnCost(() => {
+            return GraphQL.safeFetch(domain, access_token, params) as Promise<GraphqlResult<T>>;
+        });
     }
 }

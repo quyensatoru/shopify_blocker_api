@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
-import { HttpResponseService } from './http-response/http-response.service';
+import { AuthenticateModule } from './authenticate/authenticate.module';
+import { HttpResponseModule } from './http-response/http-response.module';
 
 @Module({
-    providers: [HttpResponseService],
+    imports: [AuthenticateModule, HttpResponseModule],
 })
 export class CommonModule {}

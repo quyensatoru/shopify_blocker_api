@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
-import { OrderService } from './order.service';
+import { ShopifyOrderService } from './order.service';
+import { ShopifyCoreModule } from '../core/core.module';
 
 @Module({
-    providers: [OrderService],
+    imports: [ShopifyCoreModule],
+    providers: [ShopifyOrderService],
+    exports: [ShopifyOrderService],
 })
-export class OrderModule {}
+export class ShopifyOrderModule {}
