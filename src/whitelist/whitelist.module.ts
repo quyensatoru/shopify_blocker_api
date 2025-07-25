@@ -5,9 +5,9 @@ import { WhitelistService } from './whitelist.service';
 import { WhitelistController } from './whitelist.controller';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: Whitelist.name, schema: WhitelistSchema }])],
-  controllers: [WhitelistController],
-  providers: [WhitelistService],
-  exports: [WhitelistService],
+    imports: [MongooseModule.forFeature([{ name: Whitelist.name, schema: WhitelistSchema }])],
+    controllers: [WhitelistController],
+    providers: [WhitelistService],
+    exports: [WhitelistService],
 })
 export class WhitelistModule {}

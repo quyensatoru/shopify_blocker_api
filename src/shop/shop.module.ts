@@ -7,12 +7,12 @@ import { ShopifyShopModule } from '../shopify/shop/shop.module';
 import { ShopRepository } from './shop.repository';
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([{ name: Shop.name, schema: ShopSchema }]),
-    ShopifyShopModule,
-  ],
-  providers: [ShopService, ShopRepository],
-  controllers: [ShopController],
-  exports: [ShopService],
+    imports: [
+        MongooseModule.forFeature([{ name: Shop.name, schema: ShopSchema }]),
+        ShopifyShopModule,
+    ],
+    providers: [ShopService, ShopRepository],
+    controllers: [ShopController],
+    exports: [ShopService],
 })
 export class ShopModule {}

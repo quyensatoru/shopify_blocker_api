@@ -2,11 +2,11 @@ import { Controller, Post } from '@nestjs/common';
 
 @Controller('webhook')
 export class WebhookController {
-  constructor() {}
+    constructor() {}
 
-  @Post('orders/paid')
-  async ordersPaid() {}
+    @Post('orders/paid')
+    async ordersPaid() {}
 
-  @Post('app/uninstalled')
-  async appUninstalled() {}
+    @Post('app/uninstalled')
+    async appUninstalled() {}
 }

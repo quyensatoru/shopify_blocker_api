@@ -15,22 +15,22 @@ import { DeviceModule } from './device/device.module';
 import { OrderModule } from './order/order.module';
 
 @Module({
-  imports: [
-    ShopModule,
-    DatabaseModule,
-    WebhookModule,
-    ConfigModule,
-    CommonModule,
-    ShopifyModule,
-    ActivityModule,
-    VisitorModule,
-    BlacklistModule,
-    BlacklistModule,
-    ModuleManagerModule,
-    DeviceModule,
-    OrderModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        ShopModule,
+        DatabaseModule,
+        WebhookModule,
+        ConfigModule,
+        CommonModule,
+        ShopifyModule,
+        ActivityModule,
+        VisitorModule,
+        BlacklistModule,
+        BlacklistModule,
+        ModuleManagerModule,
+        DeviceModule,
+        OrderModule,
+    ],
+    controllers: [AppController],
+    providers: [AppService],
 })
 export class AppModule {}

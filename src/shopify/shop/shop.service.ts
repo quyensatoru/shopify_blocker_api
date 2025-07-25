@@ -4,12 +4,12 @@ import { ShopifyCoreService } from '../core/core.service';
 
 @Injectable()
 export class ShopifyShopService {
-  private readonly logger = new Logger(ShopifyShopService.name);
-  constructor(private readonly shopifyCoreService: ShopifyCoreService) {}
+    private readonly logger = new Logger(ShopifyShopService.name);
+    constructor(private readonly shopifyCoreService: ShopifyCoreService) {}
 
-  async getShop(domain: string, accessToken: string) {
-    try {
-      const query = `
+    async getShop(domain: string, accessToken: string) {
+        try {
+            const query = `
                 query getShop {
                     shop { 
                         id
@@ -36,11 +36,11 @@ export class ShopifyShopService {
                     }
                 }
             `;
-      return this.shopifyCoreService.graphqlFetch<ShopifyShopResource>(domain, accessToken, {
-        query: query,
-      });
-    } catch (e) {
-      this.logger.error(e);
+            return this.shopifyCoreService.graphqlFetch<ShopifyShopResource>(domain, accessToken, {
+                query: query,
+            });
+        } catch (e) {
+            this.logger.error(e);
+        }
     }
-  }
 }

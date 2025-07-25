@@ -7,25 +7,25 @@ import { UpdateOrderDto } from './dto/update-order.dto';
 
 @Injectable()
 export class OrderService {
-  constructor(@InjectModel(Order.name) private orderModel: Model<Order>) {}
+    constructor(@InjectModel(Order.name) private orderModel: Model<Order>) {}
 
-  async create(createOrderDto: CreateOrderDto): Promise<Order> {
-    return this.orderModel.create(createOrderDto);
-  }
+    async create(createOrderDto: CreateOrderDto): Promise<Order> {
+        return this.orderModel.create(createOrderDto);
+    }
 
-  async findAll(): Promise<Order[]> {
-    return this.orderModel.find().exec();
-  }
+    async findAll(): Promise<Order[]> {
+        return this.orderModel.find().exec();
+    }
 
-  async findOne(id: string): Promise<Order | null> {
-    return this.orderModel.findById(id).exec();
-  }
+    async findOne(id: string): Promise<Order | null> {
+        return this.orderModel.findById(id).exec();
+    }
 
-  async update(id: string, updateOrderDto: UpdateOrderDto): Promise<Order | null> {
-    return this.orderModel.findByIdAndUpdate(id, updateOrderDto, { new: true }).exec();
-  }
+    async update(id: string, updateOrderDto: UpdateOrderDto): Promise<Order | null> {
+        return this.orderModel.findByIdAndUpdate(id, updateOrderDto, { new: true }).exec();
+    }
 
-  async remove(id: string): Promise<Order | null> {
-    return this.orderModel.findByIdAndDelete(id).exec();
-  }
+    async remove(id: string): Promise<Order | null> {
+        return this.orderModel.findByIdAndDelete(id).exec();
+    }
 }

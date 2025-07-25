@@ -5,11 +5,11 @@ import { AfterAuthGuard } from '../common/authenticate/authenticate.guard';
 
 @Controller('shop')
 export class ShopController {
-  constructor(private readonly shopService: ShopService) {}
+    constructor(private readonly shopService: ShopService) {}
 
-  @Post()
-  @UseGuards(AfterAuthGuard)
-  async create(@Body() body: CreateShopDto) {
-    return this.shopService.create(body);
-  }
+    @Post()
+    @UseGuards(AfterAuthGuard)
+    async create(@Body() body: CreateShopDto) {
+        return this.shopService.create(body);
+    }
 }

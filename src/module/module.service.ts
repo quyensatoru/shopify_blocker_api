@@ -7,25 +7,25 @@ import { UpdateModuleDto } from './dto/update-module.dto';
 
 @Injectable()
 export class ModuleService {
-  constructor(@InjectModel(ModuleEntity.name) private moduleModel: Model<ModuleEntity>) {}
+    constructor(@InjectModel(ModuleEntity.name) private moduleModel: Model<ModuleEntity>) {}
 
-  async create(createModuleDto: CreateModuleDto): Promise<ModuleEntity> {
-    return this.moduleModel.create(createModuleDto);
-  }
+    async create(createModuleDto: CreateModuleDto): Promise<ModuleEntity> {
+        return this.moduleModel.create(createModuleDto);
+    }
 
-  async findAll(): Promise<ModuleEntity[]> {
-    return this.moduleModel.find().exec();
-  }
+    async findAll(): Promise<ModuleEntity[]> {
+        return this.moduleModel.find().exec();
+    }
 
-  async findOne(id: string): Promise<ModuleEntity | null> {
-    return this.moduleModel.findById(id).exec();
-  }
+    async findOne(id: string): Promise<ModuleEntity | null> {
+        return this.moduleModel.findById(id).exec();
+    }
 
-  async update(id: string, updateModuleDto: UpdateModuleDto): Promise<ModuleEntity | null> {
-    return this.moduleModel.findByIdAndUpdate(id, updateModuleDto, { new: true }).exec();
-  }
+    async update(id: string, updateModuleDto: UpdateModuleDto): Promise<ModuleEntity | null> {
+        return this.moduleModel.findByIdAndUpdate(id, updateModuleDto, { new: true }).exec();
+    }
 
-  async remove(id: string): Promise<ModuleEntity | null> {
-    return this.moduleModel.findByIdAndDelete(id).exec();
-  }
+    async remove(id: string): Promise<ModuleEntity | null> {
+        return this.moduleModel.findByIdAndDelete(id).exec();
+    }
 }

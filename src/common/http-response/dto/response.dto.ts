@@ -1,11 +1,11 @@
 export class ResponseDto<T> {
-  success: boolean;
+    success: boolean;
 
-  message: string;
+    message: string;
 
-  data: T;
+    data: T;
 
-  constructor(partial: Partial<ResponseDto<T>>) {
-    Object.assign(this, partial);
-  }
+    constructor(partial: Partial<ResponseDto<T>>) {
+        Object.assign(this, partial);
+    }
 }
