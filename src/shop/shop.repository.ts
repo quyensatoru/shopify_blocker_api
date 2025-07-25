@@ -5,21 +5,21 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ShopRepository {
-    constructor(@InjectModel(Shop.name) private readonly shopModel: Model<Shop>) {}
+  constructor(@InjectModel(Shop.name) private readonly shopModel: Model<Shop>) {}
 
-    findOne(filter: FilterQuery<Shop>) {
-        return this.shopModel.findOne(filter);
-    }
+  findOne(filter: FilterQuery<Shop>) {
+    return this.shopModel.findOne(filter);
+  }
 
-    create(shop: Partial<Shop>) {
-        return this.shopModel.create(shop);
-    }
+  create(shop: Partial<Shop>) {
+    return this.shopModel.create(shop);
+  }
 
-    upsert(filter: FilterQuery<Shop>, update: Partial<Shop>, options?: QueryOptions) {
-        return this.shopModel.findOneAndUpdate(filter, update, {
-            new: true,
-            upsert: true,
-            ...(options ? options : {}),
-        });
-    }
+  upsert(filter: FilterQuery<Shop>, update: Partial<Shop>, options?: QueryOptions) {
+    return this.shopModel.findOneAndUpdate(filter, update, {
+      new: true,
+      upsert: true,
+      ...(options ? options : {}),
+    });
+  }
 }

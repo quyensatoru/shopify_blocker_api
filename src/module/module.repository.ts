@@ -5,25 +5,25 @@ import { ModuleEntity } from './schemas/module.schema';
 
 @Injectable()
 export class ModuleRepository {
-    constructor(@InjectModel(ModuleEntity.name) private moduleModel: Model<ModuleEntity>) {}
+  constructor(@InjectModel(ModuleEntity.name) private moduleModel: Model<ModuleEntity>) {}
 
-    async create(doc: Partial<ModuleEntity>) {
-        return this.moduleModel.create(doc);
-    }
+  async create(doc: Partial<ModuleEntity>) {
+    return this.moduleModel.create(doc);
+  }
 
-    async findAll() {
-        return this.moduleModel.find().exec();
-    }
+  async findAll() {
+    return this.moduleModel.find().exec();
+  }
 
-    async findById(id: string) {
-        return this.moduleModel.findById(id).exec();
-    }
+  async findById(id: string) {
+    return this.moduleModel.findById(id).exec();
+  }
 
-    async update(id: string, doc: Partial<ModuleEntity>) {
-        return this.moduleModel.findByIdAndUpdate(id, doc, { new: true }).exec();
-    }
+  async update(id: string, doc: Partial<ModuleEntity>) {
+    return this.moduleModel.findByIdAndUpdate(id, doc, { new: true }).exec();
+  }
 
-    async delete(id: string) {
-        return this.moduleModel.findByIdAndDelete(id).exec();
-    }
+  async delete(id: string) {
+    return this.moduleModel.findByIdAndDelete(id).exec();
+  }
 }

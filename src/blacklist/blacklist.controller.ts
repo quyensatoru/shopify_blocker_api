@@ -5,30 +5,30 @@ import { UpdateBlacklistDto } from './dto/update-blacklist.dto';
 
 @Controller('blacklist')
 export class BlacklistController {
-    constructor(private readonly blacklistService: BlacklistService) {}
+  constructor(private readonly blacklistService: BlacklistService) {}
 
-    @Post()
-    create(@Body() createBlacklistDto: CreateBlacklistDto) {
-        return this.blacklistService.create(createBlacklistDto);
-    }
+  @Post()
+  create(@Body() createBlacklistDto: CreateBlacklistDto) {
+    return this.blacklistService.create(createBlacklistDto);
+  }
 
-    @Get()
-    findAll() {
-        return this.blacklistService.findAll();
-    }
+  @Get()
+  findAll() {
+    return this.blacklistService.findAll();
+  }
 
-    @Get(':id')
-    findOne(@Param('id') id: string) {
-        return this.blacklistService.findOne(id);
-    }
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.blacklistService.findOne(id);
+  }
 
-    @Patch(':id')
-    update(@Param('id') id: string, @Body() updateBlacklistDto: UpdateBlacklistDto) {
-        return this.blacklistService.update(id, updateBlacklistDto);
-    }
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateBlacklistDto: UpdateBlacklistDto) {
+    return this.blacklistService.update(id, updateBlacklistDto);
+  }
 
-    @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.blacklistService.remove(id);
-    }
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.blacklistService.remove(id);
+  }
 }

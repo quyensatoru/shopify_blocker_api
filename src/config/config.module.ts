@@ -4,11 +4,11 @@ import DatabaseConfig from '../database/database.config';
 import ShopifyConfig from '../shopify/shopify.config';
 
 @Module({
-    imports: [
-        NestConfigModule.forRoot({
-            isGlobal: true,
-            load: [DatabaseConfig, ShopifyConfig],
-        }),
-    ],
+  imports: [
+    NestConfigModule.forRoot({
+      isGlobal: true,
+      load: [DatabaseConfig, ShopifyConfig],
+    }),
+  ],
 })
 export class ConfigModule {}

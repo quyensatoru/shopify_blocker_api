@@ -5,25 +5,25 @@ import { Order } from './schemas/order.schema';
 
 @Injectable()
 export class OrderRepository {
-    constructor(@InjectModel(Order.name) private orderModel: Model<Order>) {}
+  constructor(@InjectModel(Order.name) private orderModel: Model<Order>) {}
 
-    async create(doc: Partial<Order>) {
-        return this.orderModel.create(doc);
-    }
+  async create(doc: Partial<Order>) {
+    return this.orderModel.create(doc);
+  }
 
-    async findAll() {
-        return this.orderModel.find().exec();
-    }
+  async findAll() {
+    return this.orderModel.find().exec();
+  }
 
-    async findById(id: string) {
-        return this.orderModel.findById(id).exec();
-    }
+  async findById(id: string) {
+    return this.orderModel.findById(id).exec();
+  }
 
-    async update(id: string, doc: Partial<Order>) {
-        return this.orderModel.findByIdAndUpdate(id, doc, { new: true }).exec();
-    }
+  async update(id: string, doc: Partial<Order>) {
+    return this.orderModel.findByIdAndUpdate(id, doc, { new: true }).exec();
+  }
 
-    async delete(id: string) {
-        return this.orderModel.findByIdAndDelete(id).exec();
-    }
+  async delete(id: string) {
+    return this.orderModel.findByIdAndDelete(id).exec();
+  }
 }

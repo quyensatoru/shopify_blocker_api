@@ -5,9 +5,9 @@ import { ModuleService } from './module.service';
 import { ModuleController } from './module.controller';
 
 @Module({
-    imports: [MongooseModule.forFeature([{ name: ModuleEntity.name, schema: ModuleEntitySchema }])],
-    controllers: [ModuleController],
-    providers: [ModuleService],
-    exports: [ModuleService],
+  imports: [MongooseModule.forFeature([{ name: ModuleEntity.name, schema: ModuleEntitySchema }])],
+  controllers: [ModuleController],
+  providers: [ModuleService],
+  exports: [ModuleService],
 })
 export class ModuleManagerModule {}
