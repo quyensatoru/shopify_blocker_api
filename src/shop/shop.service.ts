@@ -41,25 +41,25 @@ export class ShopService {
             try {
                 const result = await this.shopifyShopService.getShop(shop.domain, shop.accessToken);
                 if (result?.data?.shop) {
-                    // const shopResource = result.data.shop;
-                    // shop = await this.shopRepository.upsert(
-                    //   {
-                    //     domain: shop.domain,
-                    //   },
-                    //   {
-                    //     visitUrl: shopResource.url,
-                    //     country: shopResource.billingAddress?.country,
-                    //     currencyFormat: shopResource.currencyFormats?.moneyFormat,
-                    //     currencyCode: shopResource.currencyCode,
-                    //     shopifyEmail: shopResource.email,
-                    //     shopifyName: shopResource.name,
-                    //     shopifyId: shopResource.id,
-                    //     shopifyPlan: shopResource.plan?.displayName,
-                    //   },
-                    //   {
-                    //     returnOriginal: false,
-                    //   },
-                    // );
+                    const shopResource = result.data.shop;
+                    shop = await this.shopRepository.upsert(
+                        {
+                            domain: shop.domain,
+                        },
+                        {
+                            visitUrl: shopResource.url,
+                            country: shopResource.billingAddress?.country,
+                            currencyFormat: shopResource.currencyFormats?.moneyFormat,
+                            currencyCode: shopResource.currencyCode,
+                            shopifyEmail: shopResource.email,
+                            shopifyName: shopResource.name,
+                            shopifyId: shopResource.id,
+                            shopifyPlan: shopResource.plan?.displayName,
+                        },
+                        {
+                            returnOriginal: false,
+                        },
+                    );
                 }
             } catch (e) {
                 console.log(e?.cause || e);
